@@ -1,0 +1,75 @@
+ /*******************************************************
+  *              Frontend+Backend Styles                *
+  *                                                     *
+  *  CSS for both Backend & Frontend enqueued           *
+  *  before editor.scss which 							*
+  *  makes it lower in priority.                        *
+  *                                                     *
+  *******************************************************/
+
+  .wp-block-evision-blocks-first-block{
+
+  	.row{
+  	   display: flex;
+  	   flex-wrap: wrap;
+  	}
+  	.row:after,
+  	.row:before{
+  	   clear: 'both';
+  	   display: 'block';
+  	   content: '';
+  	}
+  	
+  	*{
+  		box-sizing: border-box;
+  	}
+
+  	&.template-1{
+  		.image-holder{
+
+  			width: 30%;
+  			float: left;
+  			margin: 0;
+  			padding-right: 5px;
+
+  			img{
+  				border-radius: 0;
+  				max-width: 100%;
+  			}
+  		}
+
+  		.description{
+  			width: 70%;
+		    float: left;
+		    padding-left: 5px;
+  		}
+  	}
+
+  	border: 1px solid #e4dfdf;
+  	padding: 10px;
+  	margin-bottom: 20px;
+
+  	.description{
+  		width: 100%;
+  	}
+
+  	.footer{
+  		text-align: right;
+  		margin-top: 10px;
+  		.name{
+  			font-style: italic;
+  			font-weight: bold;
+  		}
+  	}
+
+  	.image-holder{
+
+  		margin: 20px 0;
+  		text-align: center;
+  		width: 100%;
+  		img{
+  			border-radius: 50%;
+  			width: 200px;
+  		}
+  	}
+  }
