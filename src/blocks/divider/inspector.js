@@ -1,4 +1,4 @@
-import { Panel, Component, Inspector, RangeControl, __ } from '../../helpers';
+import { Panel, Component, Inspector, SelectControl, __ } from '../../helpers';
 export default class InspectorPanel extends Component{
 	
 	constructor( props ){
