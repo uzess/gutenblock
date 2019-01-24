@@ -12,5 +12,5 @@
 import './style.scss';
 import './editor.scss';
 
-import './blocks/first-block';
-import './blocks/second-block';
+import './blocks/spacer';
+import './blocks/divider';

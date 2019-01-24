@@ -7,6 +7,7 @@
  * Author URI: https://evisionthemes.com/
  * Version: 1.0.0
  * License: GPL2+
+ * Text Domain: evision-blocks
  * License URI: https://www.gnu.org/licenses/gpl-2.0.txt
  */
 
@@ -28,4 +29,5 @@ define( 'EVISION_BLOCKS_PLUGIN_ASSETS_DIR', EVISION_BLOCKS_PLUGIN_DIR . '/dist' 
 
 define( 'EVISION_BLOCKS_PLUGIN_ASSETS_URL', plugins_url( '/dist/', EVISION_BLOCKS_PLUGIN_ASSETS_DIR ) );
 
+require_once EVISION_BLOCKS_PLUGIN_DIR . '/helper.php';
 require_once EVISION_BLOCKS_PLUGIN_DIR . '/init.php';
