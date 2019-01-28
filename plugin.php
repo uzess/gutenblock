@@ -16,6 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+
 # Declare Plugin mode. Possible values 'development' or 'production'
 define( 'EVISION_BLOCKS_MODE', 'development' );
 

@@ -14,6 +14,8 @@
 const attributes = {
 	height: {
 		type     : 'string',
+		source   : 'html',
+		selector : '.data-height'
 	},
 };
 

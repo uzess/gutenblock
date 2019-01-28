@@ -27,7 +27,7 @@ import save from './save';
 
 const payload = getPayload({
     title : __( 'Spacer', 'evision-blocks' ),
-    icon  : 'sort', 
+    icon  : 'sort',
     attributes,
     edit,
     save

@@ -8,7 +8,7 @@ export default class InspectorPanel extends Component{
 	render(){
 
 		const { setAttributes, attributes } = this.props.data;
-		const height = attributes.height ? attributes.height : 10;
+		const height = attributes.height ? attributes.height : 100;
 
 		return(
 			<Inspector>
@@ -16,9 +16,9 @@ export default class InspectorPanel extends Component{
 					<RangeControl
 				        label={ __( 'Space', 'evision-blocks' ) }
 				        value={ height }
-				        onChange={ ( height ) => { console.log( height ); setAttributes( { height } ) } }
+				        onChange={ ( height ) => { setAttributes( { height } ) } }
 				        min={ 2 }
-				        max={ 10 }
+				        max={ 1000 }
 				    />
 				</Panel>
 			</Inspector>

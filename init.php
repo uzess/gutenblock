@@ -39,6 +39,12 @@ final class Evision_Blocks extends Evision_Blocks_Helper{
         add_action( 'enqueue_block_assets', array( $this, 'common_scripts' ) );
         add_action( 'enqueue_block_editor_assets', array( $this, 'editor_scripts' ) );
         add_filter( 'block_categories', array( $this, 'register_category' ), 10, 2 );
+
+        # Check compatibility (WP 5.1 or gutenberg plugin is activated)
+        add_action( 'admin_init', array( $this, 'check_compatibility' ), 1 );
+
+        # Load text domain
+        add_action( 'plugins_loaded', array( $this, 'load_textdomain' ) );
     }
 
     /**
@@ -134,6 +140,47 @@ final class Evision_Blocks extends Evision_Blocks_Helper{
     public function editor_scripts(){
         wp_enqueue_script( $this->handler[ 'editor_script' ] );
         wp_enqueue_style( $this->handler[ 'editor_style' ] );
+    }
+
+   /**
+    * Check if WP Version 5.0+ or Gutenberg Plugin to work
+    *
+    * @access public
+    * @return void
+    * @since Evision Blocks 1.0.0
+    */
+
+    public function check_compatibility() {
+        global $wp_version;
+        
+        # Check version 5+ and RC
+        if ( version_compare( $wp_version, '5.0', '>=' ) or strpos( $wp_version, '5.0-RC') !== false ) {
+            return;
+        }
+
+        # WP 4.x Check if plugin is activated 
+        if ( ! is_plugin_active( 'gutenberg/gutenberg.php' ) ) {
+            
+            deactivate_plugins( '/evisionblocks/plugin.php' );
+            add_action( 'admin_notices', array( $this , 'compatibility_notice') );
+        }
+    }
+
+    public function compatibility_notice() {
+        ?>
+        <div class="error notice is-dismissible">
+            <p><?php _e( 'Evision Blocks requires WordPress 5.0 or Gutenberg plugin to be activated', 'evision-blocks' ); ?></p>
+        </div>
+        <?php
+    }
+
+
+   /**
+    * Load text domain
+    */
+
+    public function load_textdomain() {
+        load_plugin_textdomain( 'evision-blocks', false, plugin_dir_path( __DIR__ ) . '/languages' );
     }
 }
 

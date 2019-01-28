@@ -17,7 +17,7 @@ import save from './save';
 /*----------------------------------------------------------------------------------------------------------------------------*
  *																															  *	
  * Get Object for Registering Block                                                                                           *
- *                                                                                       *
+ *                                                                                                                            *
  * @see https://developer.wordpress.org/resource/dashicons/                                                                   * 
  * @see https://wordpress.org/gutenberg/handbook/designers-developers/developers/block-api/block-registration/#icon-optional  *
  * for dashicons                          																					  *	
@@ -33,4 +33,4 @@ const payload = getPayload({
     save
 });
 
-registerBlockType( 'evision-blocks/spacer', payload );
+registerBlockType( 'evision-blocks/divider', payload );

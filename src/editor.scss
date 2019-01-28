@@ -7,10 +7,18 @@
  *******************************************************/
 
 .wp-block-evision-blocks-spacer.selected{
-	background: teal;
+	background: #f3f3f3;
 }
 
 .wp-block-evision-blocks-first-block{
 	border: 1px solid #e4dfdf;
 	padding: 10px;
+}
+
+.wp-block-evision-blocks-spacer{
+	&.selected{
+		.components-resizable-box__handle{
+			display: block;
+		}
+	}
 }

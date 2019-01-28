@@ -11,6 +11,8 @@ export const Panel = wp.components.PanelBody;
 
 export const SelectControl = wp.components.SelectControl;
 
+export const ResizableBox  = wp.components.ResizableBox;
+
 export const RangeControl  = wp.components.RangeControl;
 
 export const Fragment = wp.element.Fragment;
@@ -36,3 +38,39 @@ export const getPayload = ( { icon, category, ...rest } ) => ({
 	icon     : icon ? icon : 'universal-access-alt',
 	category : category ? category : 'evision-blocks',
 });
+
+export const HeightResizer = ( { cb, height, defaultHeight, toggleSelection } ) => {
+
+	const style = {
+		display: 'flex',
+		alignItems: 'center',
+		justifyContent: 'center',
+		border: 'solid 1px #ddd',
+		background: '#f0f0f0',
+	};
+
+	const config = {
+	   top: false,
+	   right: false,
+	   bottom: true,
+	   left: false,
+	   topRight: false,
+	   bottomRight: false,
+	   bottomLeft: false,
+	   topLeft: false,
+	}; 
+
+	return (<ResizableBox
+		style={style}
+		size={{height}}
+		defaultSize={{height: defaultHeight}}
+		enable={config}
+		onResizeStop={ ( event, direction, elt, delta ) => {
+		   cb( { height: parseInt( height + delta.height, 10 ) } );
+		   toggleSelection( true );
+		} }
+		onResizeStart={ () => { toggleSelection( false ); } }
+		>
+		Spacer
+	</ResizableBox>);
+};
