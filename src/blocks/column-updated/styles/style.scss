@@ -21,4 +21,15 @@
 	.components-resizable-box__handle{
 		display: block;
 	}
+		.editor-inner-blocks{
+		> div{
+
+			display: flex;
+			align-content: stretch;
+			flex-wrap: wrap;
+			.editor-block-list__block{
+				width: 100%;
+			}
+		}
+	}
 }
