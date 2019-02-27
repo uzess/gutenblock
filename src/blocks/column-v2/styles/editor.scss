@@ -1,0 +1,17 @@
+.components-resizable-box__handle{
+	display: block;
+}
+
+.rt-column-wrapper{
+	.editor-inner-blocks{
+		> div{
+
+			display: flex;
+			align-content: stretch;
+			flex-wrap: wrap;
+			.editor-block-list__block{
+				width: 100%;
+			}
+		}
+	}
+}
